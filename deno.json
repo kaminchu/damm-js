@@ -1,0 +1,10 @@
+{
+  "imports": {
+  },
+  "tasks": {
+    "test": "deno test",
+    "fmt": "deno fmt",
+    "lint": "deno lint",
+    "build": "deno run --allow-read --allow-env --allow-net --allow-write --allow-run build.ts"
+  }
+}

@@ -1,4 +1,8 @@
 import {
+  assertEquals,
+} from "https://deno.land/std@0.65.0/testing/asserts.ts";
+
+import {
   computeAlphabet,
   computeAlphaNumeric,
   computeMixedCaseAlphaNumeric,
@@ -7,36 +11,36 @@ import {
   validateAlphaNumeric,
   validateMixedCaseAlphaNumeric,
   validateNumber,
-} from "../src/damm";
+} from "../src/damm.ts";
 
-test("computeAlphaNumeric", () => {
+Deno.test("computeAlphaNumeric", () => {
   const input = "ABCDE123";
   const digit = computeAlphaNumeric(input);
-  expect(validateAlphaNumeric(input + digit)).toBe(true);
-  expect(validateAlphaNumeric(input + "A")).toBe(false);
-  expect(validateAlphaNumeric("ABCDE132" + digit)).toBe(false);
+  assertEquals(validateAlphaNumeric(input + digit), true);
+  assertEquals(validateAlphaNumeric(input + "A"), false);
+  assertEquals(validateAlphaNumeric("ABCDE132" + digit), false);
 });
 
-test("computeAlphabet", () => {
+Deno.test("computeAlphabet", () => {
   const input = "ABCDEFG";
   const digit = computeAlphabet(input);
-  expect(validateAlphabet(input + digit)).toBe(true);
-  expect(validateAlphabet(input + "A")).toBe(false);
-  expect(validateAlphabet("ABCDEGF" + digit)).toBe(false);
+  assertEquals(validateAlphabet(input + digit), true);
+  assertEquals(validateAlphabet(input + "A"), false);
+  assertEquals(validateAlphabet("ABCDEGF" + digit), false);
 });
 
-test("computeMixedCaseAlphaNumeric", () => {
+Deno.test("computeMixedCaseAlphaNumeric", () => {
   const input = "ABCabc123";
   const digit = computeMixedCaseAlphaNumeric(input);
-  expect(validateMixedCaseAlphaNumeric(input + digit)).toBe(true);
-  expect(validateMixedCaseAlphaNumeric(input + "A")).toBe(false);
-  expect(validateMixedCaseAlphaNumeric("ABCabc132" + digit)).toBe(false);
+  assertEquals(validateMixedCaseAlphaNumeric(input + digit), true);
+  assertEquals(validateMixedCaseAlphaNumeric(input + "A"), false);
+  assertEquals(validateMixedCaseAlphaNumeric("ABCabc132" + digit), false);
 });
 
-test("computeNumber", () => {
+Deno.test("computeNumber", () => {
   const input = "01234";
   const digit = computeNumber(input);
-  expect(validateNumber(input + digit)).toBe(true);
-  expect(validateNumber(input + "1")).toBe(false);
-  expect(validateNumber("12345" + digit)).toBe(false);
+  assertEquals(validateNumber(input + digit), true);
+  assertEquals(validateNumber(input + "1"), false);
+  assertEquals(validateNumber("12345" + digit), false);
 });

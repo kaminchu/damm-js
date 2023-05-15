@@ -1,4 +1,4 @@
-import { get10x10, get26x26, get36x36, get62x62 } from "./tables";
+import { get10x10, get26x26, get36x36, get62x62 } from "./tables.ts";
 
 function compute(table: number[][], input: number[]): number {
   return input.reduce((c, e) => table[c][e], 0);
