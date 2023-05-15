@@ -8,7 +8,8 @@
   "repository": "git@github.com:kaminchu/damm-js.git",
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "fmt": "deno fmt"
   },
   "author": "kaminchu <kmchu.mail@gmail.com>",
   "license": "MIT",
